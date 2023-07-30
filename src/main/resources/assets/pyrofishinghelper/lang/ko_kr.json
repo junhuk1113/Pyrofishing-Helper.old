@@ -1,0 +1,15 @@
+{
+  "fishhelper.config.title" : "이클립스 Fish Helper",
+  "fishhelper.config.cooldownfield" : "토템 쿨타임",
+  "fishhelper.config.activatefield" : "토템 지속시간",
+  "fishhelper.config.cooldownreductionfield" : "토템 쿨감시간",
+  "fishhelper.config.savebutton" : "설정 저장",
+  "fishhelper.config.backbutton" : "돌아가기",
+  "fishhelper.config.showtime" : "토템 시간 표시",
+  "fishhelper.config.enable" : "토템 타이머 표시 : 켜짐",
+  "fishhelper.config.disable" : "토템 타이머 표시 : 꺼짐",
+  "fishhelper.config.minute" : "분",
+  "fishhelper.config.timerleft" : "x : 왼쪽",
+  "fishhelper.config.timerright": "x : 오른쪽",
+  "fishhelper.config.changepos" : "토템 타이머 위치설정"
+}

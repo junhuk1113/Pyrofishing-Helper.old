@@ -1,0 +1,15 @@
+{
+  "fishhelper.config.title" : "fish-helper",
+  "fishhelper.config.cooldownfield" : "Totem CoolDown",
+  "fishhelper.config.activatefield" : "Totem Activate",
+  "fishhelper.config.cooldownreductionfield" : "CoolDown reduction",
+  "fishhelper.config.savebutton" : "Save setting",
+  "fishhelper.config.backbutton" : "Back",
+  "fishhelper.config.showtime" : "Show Totem timer",
+  "fishhelper.config.enable" : "Show totem time : enable",
+  "fishhelper.config.disable" : "Show totem time : disable",
+  "fishhelper.config.minute" : "minute",
+  "fishhelper.config.timerleft" : "x : left",
+  "fishhelper.config.timerright": "x : right",
+  "fishhelper.config.changepos" : "Set position Totem timer"
+}

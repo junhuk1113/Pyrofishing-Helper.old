@@ -1,0 +1,35 @@
+{
+	"schemaVersion": 1,
+	"id": "pyrofishinghelper",
+	"version": "${version}",
+	"name": "PyrofishingHelper",
+	"description": "Pyrofishing 플러그인을 사용하는 서버에서 사용할 수 있는 커스텀 낚시 헬퍼모드입니다.",
+	"authors": [
+		"PMKJun"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/pyrofishinghelper/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.pmkjun.pyrofishinghelper.FishHelperMod"
+		],
+		"modmenu": ["net.pmkjun.pyrofishinghelper.config.FishHelperModMenu"]
+	},
+	"mixins": [
+		"pyrofishinghelper.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "1.20.x",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
