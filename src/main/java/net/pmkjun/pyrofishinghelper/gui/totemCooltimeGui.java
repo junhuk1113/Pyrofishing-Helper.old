@@ -19,8 +19,8 @@ public class totemCooltimeGui extends DrawContext {
     private FishHelperClient client;
     private TextRenderer font;
 
-    private static final Identifier TOTEM_ICON = new Identifier("ecse-fish-helper","totem.png");
-    private static final Identifier TOTEM_SLEEP_ICON = new Identifier("ecse-fish-helper","sleepingtotem3.png");
+    private static final Identifier TOTEM_ICON = new Identifier("pyrofishinghelper","totem.png");
+    private static final Identifier TOTEM_SLEEP_ICON = new Identifier("pyrofishinghelper","sleepingtotem3.png");
 
     private Text lastTitle = null;
 

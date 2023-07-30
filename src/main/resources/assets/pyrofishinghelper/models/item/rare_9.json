@@ -1,6 +1,6 @@
 {
 "parent": "minecraft:item/generated",
 "textures": {
-"layer0": "ecse-fish-helper:item/rare_9"
+"layer0": "pyrofishinghelper:item/rare_9"
 }
 }

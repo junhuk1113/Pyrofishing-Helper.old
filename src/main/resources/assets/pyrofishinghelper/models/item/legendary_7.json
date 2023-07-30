@@ -1,6 +1,6 @@
 {
 "parent": "minecraft:item/generated",
 "textures": {
-"layer0": "ecse-fish-helper:item/legendary_7"
+"layer0": "pyrofishinghelper:item/legendary_7"
 }
 }

@@ -28,27 +28,27 @@ public class FishItems {
         int i;
         for(i = 0; i<COMMON_FISH.length; i++){
             COMMON_FISH[i] = new Item(new Item.Settings());
-            Registry.register((Registry)Registries.ITEM, new Identifier("ecse-fish-helper", "common_"+i), COMMON_FISH[i]);
+            Registry.register((Registry)Registries.ITEM, new Identifier("pyrofishinghelper", "common_"+i), COMMON_FISH[i]);
         }
         for(i = 0; i<UNCOMMON_FISH.length; i++){
             UNCOMMON_FISH[i] = new Item(new Item.Settings());
-            Registry.register((Registry)Registries.ITEM, new Identifier("ecse-fish-helper", "uncommon_"+i), UNCOMMON_FISH[i]);
+            Registry.register((Registry)Registries.ITEM, new Identifier("pyrofishinghelper", "uncommon_"+i), UNCOMMON_FISH[i]);
         }
         for(i = 0; i<RARE_FISH.length; i++){
             RARE_FISH[i] = new Item(new Item.Settings());
-            Registry.register((Registry)Registries.ITEM, new Identifier("ecse-fish-helper", "rare_"+i), RARE_FISH[i]);
+            Registry.register((Registry)Registries.ITEM, new Identifier("pyrofishinghelper", "rare_"+i), RARE_FISH[i]);
         }
         for(i = 0; i<EPIC_FISH.length; i++){
             EPIC_FISH[i] = new Item(new Item.Settings());
-            Registry.register((Registry)Registries.ITEM, new Identifier("ecse-fish-helper", "epic_"+i), EPIC_FISH[i]);
+            Registry.register((Registry)Registries.ITEM, new Identifier("pyrofishinghelper", "epic_"+i), EPIC_FISH[i]);
         }
         for(i = 0; i<LEGENDARY_FISH.length; i++){
             LEGENDARY_FISH[i] = new Item(new Item.Settings());
-            Registry.register((Registry)Registries.ITEM, new Identifier("ecse-fish-helper", "legendary_"+i), LEGENDARY_FISH[i]);
+            Registry.register((Registry)Registries.ITEM, new Identifier("pyrofishinghelper", "legendary_"+i), LEGENDARY_FISH[i]);
         }
         for(i = 0; i<MYTHIC_FISH.length; i++){
             MYTHIC_FISH[i] = new Item(new Item.Settings());
-            Registry.register((Registry)Registries.ITEM, new Identifier("ecse-fish-helper", "mythic_"+i), MYTHIC_FISH[i]);
+            Registry.register((Registry)Registries.ITEM, new Identifier("pyrofishinghelper", "mythic_"+i), MYTHIC_FISH[i]);
         }
 
     }
