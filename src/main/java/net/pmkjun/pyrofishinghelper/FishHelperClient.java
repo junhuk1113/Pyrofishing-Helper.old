@@ -3,19 +3,18 @@ package net.pmkjun.pyrofishinghelper;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.pmkjun.pyrofishinghelper.config.ConfigManage;
-import net.pmkjun.pyrofishinghelper.config.FishHelperModMenu;
 import net.pmkjun.pyrofishinghelper.file.Data;
 import net.pmkjun.pyrofishinghelper.gui.totemCooltimeGui;
 import net.pmkjun.pyrofishinghelper.util.Timer;
 
 public class FishHelperClient {
-    private MinecraftClient mc;
+    private final MinecraftClient mc;
     private static FishHelperClient instance;
     public Data data;
     public ConfigManage configManage;
 
-    private totemCooltimeGui totemcooltimeGui;
-    private Timer timer = new Timer();
+    private final totemCooltimeGui totemcooltimeGui;
+    private final Timer timer = new Timer();
     public FishHelperClient(){
         this.mc = MinecraftClient.getInstance();
         instance = this;

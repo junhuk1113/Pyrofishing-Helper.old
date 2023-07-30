@@ -29,10 +29,6 @@ public class ItemModelsMixin {
         Item changed_item;
         cir.cancel();
 
-        /*index = FishItems.getFishItem(stack);
-        if(index != -1){
-            stack = new ItemStack((ItemConvertible) FishItems.COMMON_FISH[index], stack.getCount());
-        }*/
         if((changed_item = FishItems.getFishItem(stack))!=null) stack = new ItemStack((ItemConvertible) changed_item, stack.getCount());
 
         BakedModel bakedModel = getModel(stack.getItem());
