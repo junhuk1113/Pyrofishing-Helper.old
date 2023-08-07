@@ -29,7 +29,7 @@ public abstract class FishingMixin {
 
         bobberOwner = getPlayerOwner().getName().getString();
 
-        //LOGGER.info("Fishing bobber entity removed."+caughtFish+" "+bobberOwner);
+        LOGGER.info("Fishing bobber entity removed."+caughtFish+" "+bobberOwner);
 
         if(caughtFish && bobberOwner.equals(FishHelperClient.getInstance().getUsername()) && client.data.isTotemCooldown){
             //LOGGER.info("fish caught!"+FishHelperClient.getInstance().getUsername());
