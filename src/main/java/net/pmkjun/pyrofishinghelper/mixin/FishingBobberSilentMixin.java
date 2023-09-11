@@ -18,4 +18,6 @@ public abstract class FishingBobberSilentMixin {
         System.out.println(packet.getSound().getKey().get().getValue().getPath());
     }
 
+
+
 }
