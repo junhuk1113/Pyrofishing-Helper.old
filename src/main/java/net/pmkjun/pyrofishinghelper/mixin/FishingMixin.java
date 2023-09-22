@@ -46,11 +46,11 @@ public abstract class FishingMixin {
         }
     }
 
-    @Inject(method = "tick",at = @At("RETURN"))
+    @Inject(method = "tick",at = @At("HEAD"))
     private void ontickMixin(CallbackInfo ci){
         String bobberOwner = getPlayerOwner().getName().getString();
 
-        if(bobberOwner.equals(client.getUsername())){
+        if(client.data.toggleMuteotherfishingbobber && bobberOwner.equals(client.getUsername())){
             if(!previouscaughtFish && caughtFish){
                 System.out.println("fishBobber splash!");
                 MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.ambient(SoundEvents.ENTITY_FISHING_BOBBER_SPLASH),0);

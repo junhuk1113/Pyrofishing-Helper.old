@@ -19,6 +19,7 @@ public class ConfigScreen extends Screen {
     private TextFieldWidget CooldownReduction_TextField;
 
     private ButtonWidget toggleTotemButton;
+    private ButtonWidget toggleMuteotherfishingbobberButton;
 
     private ActivateTimeSlider activateTimeSlider;
     private CooldownSlider cooldownSlider;
@@ -38,6 +39,7 @@ public class ConfigScreen extends Screen {
     protected void init() {
         String toggleTotem;
         String timerxpos;
+        String toggleMuter;
 
         System.out.println("width : "+this.width+" height"+this.height);
 
@@ -54,6 +56,13 @@ public class ConfigScreen extends Screen {
         }
         else{
             timerxpos = "fishhelper.config.timerleft";
+        }
+
+        if(client.data.toggleMuteotherfishingbobber){
+            toggleMuter = "fishhelper.config.muter_enable";
+        }
+        else{
+            toggleMuter = "fishhelper.config.muter_disable";
         }
 
         activateTimeSlider = new ActivateTimeSlider(10,10,150,
@@ -74,11 +83,16 @@ public class ConfigScreen extends Screen {
         }).dimensions(10,75, 150,20).build();
         this.addDrawableChild(toggleTotemButton);
 
+        toggleMuteotherfishingbobberButton = ButtonWidget.builder(Text.translatable(toggleMuter),button -> {
+            toggleMuter();
+        }).dimensions(10,100, 150, 20).build();
+        this.addDrawableChild(toggleMuteotherfishingbobberButton);
+
         timerXbtn = ButtonWidget.builder(Text.translatable(timerxpos),button -> {
             toggleTotemXpos();
-        }).dimensions(10,115,150,20).build();
+        }).dimensions(10,145,150,20).build();
         this.addDrawableChild(timerXbtn);
-        timerYSlider = new Timer_y_Slider(10,140,150,this.client.data.Timer_ypos,1,1000);
+        timerYSlider = new Timer_y_Slider(10,170,150,this.client.data.Timer_ypos,1,1000);
         this.addDrawableChild(timerYSlider);
 
         this.addDrawableChild(ButtonWidget.builder(Text.translatable("fishhelper.config.backbutton"),button -> {
@@ -109,7 +123,7 @@ public class ConfigScreen extends Screen {
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         this.renderBackground(context);
         context.drawTextWithShadow(this.textRenderer, Text.translatable("fishhelper.config.cooldownreductionfield"), 10, 60, 0xFFFFFF);
-        context.drawTextWithShadow(this.textRenderer,Text.translatable("fishhelper.config.changepos"),10,100,0xFFFFFF);
+        context.drawTextWithShadow(this.textRenderer,Text.translatable("fishhelper.config.changepos"),10,135,0xFFFFFF);
 
         this.activateTimeSlider.render(context, mouseX, mouseY, delta);
         this.cooldownSlider.render(context, mouseX, mouseY, delta);
@@ -152,6 +166,16 @@ public class ConfigScreen extends Screen {
         else{
             toggleTotemButton.setMessage(Text.translatable("fishhelper.config.enable"));
             client.data.toggleTotemtime = true;
+        }
+    }
+    private void toggleMuter(){
+        if(client.data.toggleMuteotherfishingbobber){
+            toggleMuteotherfishingbobberButton.setMessage(Text.translatable("fishhelper.config.muter_disable"));
+            client.data.toggleMuteotherfishingbobber = false;
+        }
+        else{
+            toggleMuteotherfishingbobberButton.setMessage(Text.translatable("fishhelper.config.muter_enable"));
+            client.data.toggleMuteotherfishingbobber = true;
         }
     }
 

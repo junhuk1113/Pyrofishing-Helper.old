@@ -9,6 +9,7 @@ import net.minecraft.network.listener.TickablePacketListener;
 import net.minecraft.network.packet.s2c.play.PlaySoundFromEntityS2CPacket;
 import net.minecraft.network.packet.s2c.play.PlaySoundS2CPacket;
 import net.minecraft.sound.SoundEvents;
+import net.pmkjun.pyrofishinghelper.FishHelperClient;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -31,7 +32,8 @@ public abstract class FishingBobberSilentMixin implements TickablePacketListener
     @Overwrite
     public void onPlaySound(PlaySoundS2CPacket packet) {
         NetworkThreadUtils.forceMainThread(packet, this, this.client);
-        if(packet.getSound().getKey().get().getValue().getPath().equals("entity.fishing_bobber.splash")){
+        if(FishHelperClient.getInstance().data.toggleMuteotherfishingbobber
+                && packet.getSound().getKey().get().getValue().getPath().equals("entity.fishing_bobber.splash")){
             System.out.println("sound ignored");
             return;
         }

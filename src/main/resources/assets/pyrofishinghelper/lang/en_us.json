@@ -11,5 +11,7 @@
   "fishhelper.config.minute" : "minute",
   "fishhelper.config.timerleft" : "x : left",
   "fishhelper.config.timerright": "x : right",
-  "fishhelper.config.changepos" : "Set position Totem timer"
+  "fishhelper.config.changepos" : "Set position Totem timer",
+  "fishhelper.config.muter_enable" : "Mute other Fishing sound : enable",
+  "fishhelper.config.muter_disable" : "Mute other Fishing sound : disable"
 }
