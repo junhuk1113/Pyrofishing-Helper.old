@@ -2,6 +2,7 @@ package net.pmkjun.pyrofishinghelper;
 
 import com.mojang.logging.LogUtils;
 import net.fabricmc.api.ModInitializer;
+import net.pmkjun.pyrofishinghelper.input.KeyMappings;
 import net.pmkjun.pyrofishinghelper.item.FishItems;
 import org.slf4j.Logger;
 
@@ -17,5 +18,7 @@ public class FishHelperMod implements ModInitializer {
 		this.client = new FishHelperClient();
 		this.client.init();
 		FishItems.register();
+		KeyMappings keyMappings = new KeyMappings();
+		keyMappings.register();
 	}
 }

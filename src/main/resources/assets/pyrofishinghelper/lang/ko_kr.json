@@ -13,5 +13,8 @@
   "fishhelper.config.timerright": "x : 오른쪽",
   "fishhelper.config.changepos" : "토템 타이머 위치설정",
   "fishhelper.config.muter_enable" : "다른 사람 낚시찌 소리 음소거 : 켜짐",
-  "fishhelper.config.muter_disable" : "다른 사람 낚시찌 소리 음소거 : 꺼짐"
+  "fishhelper.config.muter_disable" : "다른 사람 낚시찌 소리 음소거 : 꺼짐",
+
+  "fishhelper.key.category" : "Pyro Fishing Helper",
+  "fishhelper.key.open_settings" : "피시헬퍼 설정열기"
 }

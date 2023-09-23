@@ -13,5 +13,8 @@
   "fishhelper.config.timerright": "x : right",
   "fishhelper.config.changepos" : "Set position Totem timer",
   "fishhelper.config.muter_enable" : "Mute other Fishing sound : enable",
-  "fishhelper.config.muter_disable" : "Mute other Fishing sound : disable"
+  "fishhelper.config.muter_disable" : "Mute other Fishing sound : disable",
+
+  "fishhelper.key.category" : "Pyro Fishing Helper",
+  "fishhelper.key.open_settings" : "Open FishHelper setting"
 }
