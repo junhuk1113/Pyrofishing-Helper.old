@@ -35,7 +35,13 @@ public abstract class FishingMixin {
     @Inject(method = "onRemoved", at = @At("RETURN"))
     private void onRemovedMixin(CallbackInfo ci) {
         String bobberOwner;
-        bobberOwner = getPlayerOwner().getName().getString();
+        try{
+            bobberOwner = getPlayerOwner().getName().getString();
+        }
+        catch (NullPointerException e){
+            //System.out.println("null1!");
+            return;
+        }
 
         LOGGER.info("Fishing bobber entity removed."+caughtFish+" "+bobberOwner);
 
@@ -48,7 +54,14 @@ public abstract class FishingMixin {
 
     @Inject(method = "tick",at = @At("HEAD"))
     private void ontickMixin(CallbackInfo ci){
-        String bobberOwner = getPlayerOwner().getName().getString();
+        String bobberOwner;
+        try{
+            bobberOwner = getPlayerOwner().getName().getString();
+        }
+        catch (NullPointerException e){
+            //System.out.println("null1!");
+            return;
+        }
 
         if(client.data.toggleMuteotherfishingbobber && bobberOwner.equals(client.getUsername())){
             if(!previouscaughtFish && caughtFish){
