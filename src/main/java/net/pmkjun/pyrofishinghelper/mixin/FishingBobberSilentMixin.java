@@ -18,6 +18,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.NoSuchElementException;
+
 @Mixin(ClientPlayNetworkHandler.class)
 public abstract class FishingBobberSilentMixin implements TickablePacketListener, ClientPlayPacketListener {
 
@@ -32,10 +34,15 @@ public abstract class FishingBobberSilentMixin implements TickablePacketListener
     @Overwrite
     public void onPlaySound(PlaySoundS2CPacket packet) {
         NetworkThreadUtils.forceMainThread(packet, this, this.client);
-        if(FishHelperClient.getInstance().data.toggleMuteotherfishingbobber
-                && packet.getSound().getKey().get().getValue().getPath().equals("entity.fishing_bobber.splash")){
-            System.out.println("sound ignored");
-            return;
+        try {
+            if (FishHelperClient.getInstance().data.toggleMuteotherfishingbobber
+                    && packet.getSound().getKey().get().getValue().getPath().equals("entity.fishing_bobber.splash")) {
+                System.out.println("sound ignored");
+                return;
+            }
+        }
+        catch (NoSuchElementException ignored){
+
         }
         this.client.world.playSound(this.client.player, packet.getX(), packet.getY(), packet.getZ(), packet.getSound(), packet.getCategory(), packet.getVolume(), packet.getPitch(), packet.getSeed());
     }
