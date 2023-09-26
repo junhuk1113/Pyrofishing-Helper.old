@@ -14,6 +14,8 @@ import net.pmkjun.pyrofishinghelper.FishHelperClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
+import java.util.NoSuchElementException;
+
 @Mixin(ClientPlayNetworkHandler.class)
 public abstract class FishingBobberSilentMixin extends ClientCommonNetworkHandler implements TickablePacketListener, ClientPlayPacketListener {
     protected FishingBobberSilentMixin(MinecraftClient client, ClientConnection connection, ClientConnectionState connectionState) {
@@ -27,10 +29,15 @@ public abstract class FishingBobberSilentMixin extends ClientCommonNetworkHandle
     @Overwrite
     public void onPlaySound(PlaySoundS2CPacket packet) {
         NetworkThreadUtils.forceMainThread(packet, this, this.client);
-        if(FishHelperClient.getInstance().data.toggleMuteotherfishingbobber
-                && packet.getSound().getKey().get().getValue().getPath().equals("entity.fishing_bobber.splash")){
-            System.out.println("sound ignored");
-            return;
+        try {
+            if (FishHelperClient.getInstance().data.toggleMuteotherfishingbobber
+                    && packet.getSound().getKey().get().getValue().getPath().equals("entity.fishing_bobber.splash")) {
+                System.out.println("sound ignored");
+                return;
+            }
+        }
+        catch (NoSuchElementException ignored){
+
         }
         this.client.world.playSound(this.client.player, packet.getX(), packet.getY(), packet.getZ(), packet.getSound(), packet.getCategory(), packet.getVolume(), packet.getPitch(), packet.getSeed());
     }
