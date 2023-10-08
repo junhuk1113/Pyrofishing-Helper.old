@@ -14,7 +14,7 @@ import net.pmkjun.pyrofishinghelper.util.Timer;
 
 
 
-public class totemCooltimeGui extends DrawContext {
+public class totemCooltimeGui {
     private MinecraftClient mc;
     private FishHelperClient client;
     private TextRenderer font;
@@ -25,7 +25,6 @@ public class totemCooltimeGui extends DrawContext {
     private Text lastTitle = null;
 
     public totemCooltimeGui(){
-        super(MinecraftClient.getInstance(), VertexConsumerProvider.immediate(new BufferBuilder(10)));
         this.mc = MinecraftClient.getInstance();
         this.client = FishHelperClient.getInstance();
     }
@@ -54,7 +53,7 @@ public class totemCooltimeGui extends DrawContext {
     }
 
     private void render(DrawContext context,Identifier texture, int second){
-        MatrixStack poseStack = getMatrices();
+        MatrixStack poseStack = context.getMatrices();
         int Timer_xpos=2;
         double percent = (double)this.client.data.Timer_ypos / 1000;
         int Timer_ypos = this.mc.getWindow().getScaledHeight()-18-2;
@@ -69,7 +68,7 @@ public class totemCooltimeGui extends DrawContext {
         poseStack.scale(0.0625F, 0.0625F, 0.0625F);
 
         RenderSystem.setShaderTexture(0,texture);
-        drawTexture(texture, 0, 0, 0, 0, 256, 256);
+        context.drawTexture(texture, 0, 0, 0, 0, 256, 256);
         poseStack.scale(16.0F, 16.0F, 16.0F);
         poseStack.pop();
 
@@ -80,7 +79,7 @@ public class totemCooltimeGui extends DrawContext {
             poseStack.push();
             poseStack.translate((Timer_xpos + 16 + 2), Timer_ypos+4, 0.0D);
             poseStack.scale(0.9090909F, 0.9090909F, 0.9090909F);
-            drawTextWithShadow(this.font, (Text)Text.literal(String.format("%02d:%02d", new Object[] { Integer.valueOf(minute), Integer.valueOf(second) })), 0, 0, 16777215);
+            context.drawTextWithShadow(this.font, (Text)Text.literal(String.format("%02d:%02d", new Object[] { Integer.valueOf(minute), Integer.valueOf(second) })), 0, 0, 16777215);
             poseStack.scale(1.1F, 1.1F, 1.1F);
 
             poseStack.pop();
