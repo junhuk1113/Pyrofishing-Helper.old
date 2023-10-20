@@ -18,5 +18,6 @@ public class Data implements Serializable{
     public Boolean isTimerright = false;
     public Boolean toggleCustomTexture = true;
     public Boolean toggleMuteotherfishingbobber = false;
+    public int Timer_xpos = 1;
     public int Timer_ypos = 1;
 }

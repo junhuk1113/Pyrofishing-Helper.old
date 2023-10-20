@@ -54,10 +54,9 @@ public class totemCooltimeGui {
 
     private void render(DrawContext context,Identifier texture, int second){
         MatrixStack poseStack = context.getMatrices();
-        int Timer_xpos=2;
-        double percent = (double)this.client.data.Timer_ypos / 1000;
-        int Timer_ypos = this.mc.getWindow().getScaledHeight()-18-2;
-        Timer_ypos = (int)((int)Timer_ypos * percent+2);
+        int Timer_xpos, Timer_ypos;
+        Timer_xpos = getXpos();
+        Timer_ypos = getYpos();
 
         if(this.client.data.isTimerright){
             Timer_xpos = this.mc.getWindow().getScaledWidth()-43;
@@ -85,6 +84,11 @@ public class totemCooltimeGui {
             poseStack.pop();
         }
     }
-
+    private int getXpos(){
+        return 2 + (this.mc.getWindow().getScaledWidth()-43-2) * this.client.data.Timer_xpos / 1000;
+    }
+    private int getYpos(){
+        return 2 + (this.mc.getWindow().getScaledHeight()-18-2) * this.client.data.Timer_ypos / 1000;
+    }
 
 }

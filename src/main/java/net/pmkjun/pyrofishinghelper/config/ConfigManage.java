@@ -8,7 +8,7 @@ import java.io.*;
 public class ConfigManage {
     private static final String DATA_DIRECTORY_PATH = "\\PyrofishingHelper";
 
-    private static final String DATA_FILE_PATH = "\\PyrofishingHelper\\configv2.data";
+    private static final String DATA_FILE_PATH = "\\PyrofishingHelper\\configv3.data";
 
     public void save() {
         save((FishHelperClient.getInstance()).data);

@@ -27,6 +27,7 @@ public class ConfigScreen extends Screen {
     private Slider cooldownSlider;
 
     private ButtonWidget timerXbtn;
+    private Slider timerXSlider;
     private Slider timerYSlider;
 
     public ConfigScreen(Screen parentScreen){
@@ -104,10 +105,18 @@ public class ConfigScreen extends Screen {
         }).dimensions(10,100, 150, 20).build();
         this.addDrawableChild(toggleMuteotherfishingbobberButton);
 
-        timerXbtn = ButtonWidget.builder(Text.translatable(timerxpos),button -> {
+        /*timerXbtn = ButtonWidget.builder(Text.translatable(timerxpos),button -> {
             toggleTotemXpos();
         }).dimensions(10,145,150,20).build();
-        this.addDrawableChild(timerXbtn);
+        this.addDrawableChild(timerXbtn);*/
+        timerXSlider = new Slider(10,145,150,20,Text.literal("X : "),1,1000,this.client.data.Timer_xpos){
+            @Override
+            protected void applyValue() {
+                client.data.Timer_xpos = getValueInt();
+                client.configManage.save();
+            }
+        };
+        this.addDrawableChild(timerXSlider);
         timerYSlider = new Slider(10,170,150,20,Text.literal("Y : "),1,1000,this.client.data.Timer_ypos){
             @Override
             protected void applyValue() {
@@ -150,6 +159,7 @@ public class ConfigScreen extends Screen {
         this.activateTimeSlider.render(context, mouseX, mouseY, delta);
         this.cooldownSlider.render(context, mouseX, mouseY, delta);
 
+        this.timerXSlider.render(context, mouseX, mouseY, delta);
         this.timerYSlider.render(context, mouseX, mouseY, delta);
 
         this.CooldownReduction_TextField.render(context, mouseX, mouseY, delta);
@@ -170,16 +180,6 @@ public class ConfigScreen extends Screen {
 
     }
 
-    private void toggleTotemXpos(){
-        if(client.data.isTimerright){
-            timerXbtn.setMessage(Text.translatable("fishhelper.config.timerleft"));
-            client.data.isTimerright = false;
-        }
-        else{
-            timerXbtn.setMessage(Text.translatable("fishhelper.config.timerright"));
-            client.data.isTimerright = true;
-        }
-    }
     private void toggleTotemtime(){
         if(client.data.toggleTotemtime){
             toggleTotemButton.setMessage(Text.translatable("fishhelper.config.disable"));
