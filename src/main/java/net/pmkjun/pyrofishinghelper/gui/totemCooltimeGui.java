@@ -58,10 +58,6 @@ public class totemCooltimeGui {
         Timer_xpos = getXpos();
         Timer_ypos = getYpos();
 
-        if(this.client.data.isTimerright){
-            Timer_xpos = this.mc.getWindow().getScaledWidth()-43;
-
-        }
         poseStack.push();
         poseStack.translate(Timer_xpos,Timer_ypos,0.0D);
         poseStack.scale(0.0625F, 0.0625F, 0.0625F);

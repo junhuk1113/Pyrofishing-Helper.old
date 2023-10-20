@@ -16,6 +16,8 @@
   "fishhelper.config.muter_disable" : "다른 사람 낚시찌 소리 음소거 : 꺼짐",
   "fishhelper.config.customtexture_enable" : "물고기 등급별 텍스쳐 : 켜짐",
   "fishhelper.config.customtexture_disable" : "물고기 등급별 텍스쳐 : 꺼짐",
+  "fishhelper.config.chattinglog_enable" : "페더클 채팅 로그 : 켜짐",
+  "fishhelper.config.chattinglog_disable" : "페더클 채팅 로그 : 꺼짐",
 
   "fishhelper.key.category" : "Pyro Fishing Helper",
   "fishhelper.key.open_settings" : "피시헬퍼 설정열기"

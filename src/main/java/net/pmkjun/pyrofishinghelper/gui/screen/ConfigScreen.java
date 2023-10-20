@@ -27,6 +27,7 @@ public class ConfigScreen extends Screen {
     private Slider cooldownSlider;
 
     private ButtonWidget toggleCustomTextureButton;
+    private ButtonWidget toggleChattinglogButton;
     private Slider timerXSlider;
     private Slider timerYSlider;
 
@@ -43,6 +44,7 @@ public class ConfigScreen extends Screen {
         String toggleTotem;
         String toggleTexture;
         String toggleMuter;
+        String toggleLog;
 
         if(client.data.toggleTotemtime){
             toggleTotem = "fishhelper.config.enable";
@@ -63,6 +65,13 @@ public class ConfigScreen extends Screen {
         }
         else{
             toggleTexture = "fishhelper.config.customtexture_disable";
+        }
+
+        if(client.data.toggleChattinglog){
+            toggleLog = "fishhelper.config.chattinglog_enable";
+        }
+        else {
+            toggleLog = "fishhelper.config.chattinglog_disable";
         }
         activateTimeSlider = new Slider(10, 10, 150, 20, Text.literal(""),0,20,ConvertActivateTime.asLevel(this.client.data.valueTotemActivetime)){
             @Override
@@ -106,6 +115,11 @@ public class ConfigScreen extends Screen {
             toggleMuter();
         }).dimensions(10,125, 150, 20).build();
         this.addDrawableChild(toggleMuteotherfishingbobberButton);
+
+        toggleChattinglogButton = ButtonWidget.builder(Text.translatable(toggleLog),button -> {
+            onChattinglogPress();
+        }).dimensions(165,75, 150,20).build();
+        this.addDrawableChild(toggleChattinglogButton);
 
         timerXSlider = new Slider(10,165,150,20,Text.literal("X : "),1,1000,this.client.data.Timer_xpos){
             @Override
@@ -208,6 +222,17 @@ public class ConfigScreen extends Screen {
         else{
             toggleCustomTextureButton.setMessage(Text.translatable("fishhelper.config.customtexture_enable"));
             client.data.toggleCustomTexture = true;
+        }
+        client.configManage.save();
+    }
+    private void onChattinglogPress(){
+        if(client.data.toggleChattinglog){
+            toggleChattinglogButton.setMessage(Text.translatable("fishhelper.config.chattinglog_disable"));
+            client.data.toggleChattinglog = false;
+        }
+        else{
+            toggleChattinglogButton.setMessage(Text.translatable("fishhelper.config.chattinglog_enable"));
+            client.data.toggleChattinglog = true;
         }
         client.configManage.save();
     }

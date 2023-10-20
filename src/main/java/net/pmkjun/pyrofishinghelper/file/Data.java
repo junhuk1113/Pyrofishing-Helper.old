@@ -15,9 +15,9 @@ public class Data implements Serializable{
     public long lastTotemTime=0;
     public long lastTotemCooldownTime = 0;
 
-    public Boolean isTimerright = false;
-    public Boolean toggleCustomTexture = true;
-    public Boolean toggleMuteotherfishingbobber = false;
+    public boolean toggleCustomTexture = true;
+    public boolean toggleMuteotherfishingbobber = false;
+    public boolean toggleChattinglog = false;
     public int Timer_xpos = 1;
     public int Timer_ypos = 1;
 }
