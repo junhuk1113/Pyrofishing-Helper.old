@@ -6,7 +6,9 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;
+import net.minecraft.util.math.MathHelper;
 import net.pmkjun.pyrofishinghelper.FishHelperClient;
+import net.pmkjun.pyrofishinghelper.gui.widget.Slider;
 import net.pmkjun.pyrofishinghelper.util.ConvertActivateTime;
 import net.pmkjun.pyrofishinghelper.util.ConvertCooldown;
 
@@ -21,11 +23,11 @@ public class ConfigScreen extends Screen {
     private ButtonWidget toggleTotemButton;
     private ButtonWidget toggleMuteotherfishingbobberButton;
 
-    private ActivateTimeSlider activateTimeSlider;
-    private CooldownSlider cooldownSlider;
+    private Slider activateTimeSlider;
+    private Slider cooldownSlider;
 
     private ButtonWidget timerXbtn;
-    private Timer_y_Slider timerYSlider;
+    private Slider timerYSlider;
 
     public ConfigScreen(Screen parentScreen){
         super(Text.translatable("fishhelper.config.title"));
@@ -64,12 +66,26 @@ public class ConfigScreen extends Screen {
         else{
             toggleMuter = "fishhelper.config.muter_disable";
         }
+        activateTimeSlider = new Slider(10, 10, 150, 20, Text.literal(""),0,20,ConvertActivateTime.asLevel(this.client.data.valueTotemActivetime)){
+            @Override
+            protected void updateMessage() {
+                int level = getValueInt();
+                this.setMessage(Text.literal(Text.translatable("fishhelper.config.activatefield").getString()
+                        +" : "+ level +"lv ("+
+                        ConvertActivateTime.asMinute(level)+
+                        Text.translatable("fishhelper.config.minute").getString()+")"));
+            }
+        };
+        cooldownSlider = new Slider(10, 35, 150, 20, Text.literal(""),0,10,ConvertCooldown.asLevel(this.client.data.valueTotemCooldown)){
+            @Override
+            protected void updateMessage() {
+                int level = getValueInt();
+                this.setMessage(Text.literal(Text.translatable("fishhelper.config.cooldownfield").getString()
+                        +" : "+ level +"lv ("+ ConvertCooldown.asMinute(level)+
+                        Text.translatable("fishhelper.config.minute").getString()+")"));
+            }
+        };
 
-        activateTimeSlider = new ActivateTimeSlider(10,10,150,
-                ConvertActivateTime.asLevel(this.client.data.valueTotemActivetime),0,20);
-
-        cooldownSlider = new CooldownSlider(10, 35, 150,
-                ConvertCooldown.asLevel(this.client.data.valueTotemCooldown),0,10);
         this.addDrawableChild(activateTimeSlider);
         this.addDrawableChild(cooldownSlider);
 
@@ -92,7 +108,13 @@ public class ConfigScreen extends Screen {
             toggleTotemXpos();
         }).dimensions(10,145,150,20).build();
         this.addDrawableChild(timerXbtn);
-        timerYSlider = new Timer_y_Slider(10,170,150,this.client.data.Timer_ypos,1,1000);
+        timerYSlider = new Slider(10,170,150,20,Text.literal("Y : "),1,1000,this.client.data.Timer_ypos){
+            @Override
+            protected void applyValue() {
+                client.data.Timer_ypos = getValueInt();
+                client.configManage.save();
+            }
+        };
         this.addDrawableChild(timerYSlider);
 
         this.addDrawableChild(ButtonWidget.builder(Text.translatable("fishhelper.config.backbutton"),button -> {
@@ -136,8 +158,8 @@ public class ConfigScreen extends Screen {
     }
     private void changeSetting(){
         try{
-            client.data.valueTotemActivetime = ConvertActivateTime.asMinute(activateTimeSlider.getValue());
-            client.data.valueTotemCooldown = ConvertCooldown.asMinute(cooldownSlider.getValue());
+            client.data.valueTotemActivetime = ConvertActivateTime.asMinute(activateTimeSlider.getValueInt());
+            client.data.valueTotemCooldown = ConvertCooldown.asMinute(cooldownSlider.getValueInt());
             client.data.valueCooldownReduction = (long)(Double.parseDouble(CooldownReduction_TextField.getText())*1000);
 
             client.configManage.save();

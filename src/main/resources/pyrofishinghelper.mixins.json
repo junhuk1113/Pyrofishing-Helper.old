@@ -7,9 +7,10 @@
     "FishingMixin",
     "GuiMixin",
     "ItemModelsMixin",
-    "ItemPickupMixin"
+    "ItemPickupMixin",
+    "ChatMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-	}
+  }
 }
