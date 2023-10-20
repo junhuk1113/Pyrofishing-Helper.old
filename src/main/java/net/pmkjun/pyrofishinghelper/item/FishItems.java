@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.pmkjun.pyrofishinghelper.FishHelperClient;
 
 import java.util.Arrays;
 
@@ -57,6 +58,7 @@ public class FishItems {
         int index;
 
         if(!(itemStack.getItem().toString().equals("cod"))) return null;
+        if(!FishHelperClient.getInstance().data.toggleCustomTexture) return null;
 
         index = Arrays.stream(COMMMON_FISH_LIST).toList().indexOf(name);
         if(index!=-1) return COMMON_FISH[index];
