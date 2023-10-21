@@ -159,7 +159,6 @@ public class ConfigScreen extends Screen {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        this.renderBackground(context, mouseX, mouseY, delta);
         context.drawTextWithShadow(this.textRenderer, Text.translatable("fishhelper.config.cooldownreductionfield"), 10, 60, 0xFFFFFF);
         context.drawTextWithShadow(this.textRenderer,Text.translatable("fishhelper.config.changepos"),10,155,0xFFFFFF);
 

@@ -22,10 +22,7 @@ import java.util.NoSuchElementException;
 
 @Mixin(ClientPlayNetworkHandler.class)
 public abstract class FishingBobberSilentMixin implements TickablePacketListener, ClientPlayPacketListener {
-
-    @Shadow
-    @Final
-    private MinecraftClient client;
+    MinecraftClient client = MinecraftClient.getInstance();
 
     /**
      * @author
@@ -44,6 +41,7 @@ public abstract class FishingBobberSilentMixin implements TickablePacketListener
         catch (NoSuchElementException ignored){
 
         }
+        assert this.client.world != null;
         this.client.world.playSound(this.client.player, packet.getX(), packet.getY(), packet.getZ(), packet.getSound(), packet.getCategory(), packet.getVolume(), packet.getPitch(), packet.getSeed());
     }
 
