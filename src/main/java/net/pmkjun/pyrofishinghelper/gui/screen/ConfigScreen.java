@@ -147,12 +147,6 @@ public class ConfigScreen extends Screen {
             mc.setScreen(parentScreen);
         }).dimensions(this.width-60,this.height-30, 50,20).build());
     }
-
-    @Override
-    public void tick() {
-        this.CooldownReduction_TextField.tick();
-    }
-
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         return super.keyPressed(keyCode, scanCode, modifiers)
@@ -164,7 +158,7 @@ public class ConfigScreen extends Screen {
     }
 
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        this.renderBackground(context);
+        //this.renderBackground(context,mouseX,mouseY,delta);
         context.drawTextWithShadow(this.textRenderer, Text.translatable("fishhelper.config.cooldownreductionfield"), 10, 60, 0xFFFFFF);
         context.drawTextWithShadow(this.textRenderer,Text.translatable("fishhelper.config.changepos"),10,155,0xFFFFFF);
 
