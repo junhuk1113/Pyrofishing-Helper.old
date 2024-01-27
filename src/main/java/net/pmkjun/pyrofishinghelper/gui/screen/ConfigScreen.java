@@ -111,14 +111,14 @@ public class ConfigScreen extends Screen {
         }).dimensions(10,100,150,20).build();
         this.addDrawableChild(toggleCustomTextureButton);
 
-        toggleMuteotherfishingbobberButton = ButtonWidget.builder(Text.translatable(toggleMuter),button -> {
+        /*toggleMuteotherfishingbobberButton = ButtonWidget.builder(Text.translatable(toggleMuter),button -> {
             toggleMuter();
         }).dimensions(10,125, 150, 20).build();
-        this.addDrawableChild(toggleMuteotherfishingbobberButton);
+        this.addDrawableChild(toggleMuteotherfishingbobberButton);*/
 
         toggleChattinglogButton = ButtonWidget.builder(Text.translatable(toggleLog),button -> {
             onChattinglogPress();
-        }).dimensions(165,75, 150,20).build();
+        }).dimensions(10,125, 150, 20).build();
         this.addDrawableChild(toggleChattinglogButton);
 
         timerXSlider = new Slider(10,165,150,20,Text.literal("X : "),1,1000,this.client.data.Timer_xpos){

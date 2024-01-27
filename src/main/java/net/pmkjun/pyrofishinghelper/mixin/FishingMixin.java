@@ -63,7 +63,7 @@ public abstract class FishingMixin {
             return;
         }
 
-        if(client.data.toggleMuteotherfishingbobber && bobberOwner.equals(client.getUsername())){
+        /*if(client.data.toggleMuteotherfishingbobber && bobberOwner.equals(client.getUsername())){
             if(!previouscaughtFish && caughtFish){
                 System.out.println("fishBobber splash!");
                 MinecraftClient.getInstance().getSoundManager().play(PositionedSoundInstance.master(SoundEvents.ENTITY_FISHING_BOBBER_SPLASH,1.0F,0.2F),0);
@@ -74,7 +74,7 @@ public abstract class FishingMixin {
                 previouscaughtFish = false;
             }
 
-        }
+        }*/
 
     }
 
